@@ -3,7 +3,7 @@ import re
 from typing import List
 
 
-def filter_datum(fields, redaction, message, separator):
+def filter_datum(fields, redaction, message, separator) -> str:
     """Obfuscates the specified fields in a log message."""
     for field in fields:
         a = fr"{field}=[^{separator}]*"

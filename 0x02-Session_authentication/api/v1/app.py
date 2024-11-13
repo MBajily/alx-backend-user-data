@@ -2,17 +2,19 @@
 from flask import Flask, jsonify, request, abort
 from api.v1.auth.auth import Auth
 from api.v1.auth.basic_auth import BasicAuth
+from api.v1.auth.session_auth import SessionAuth
 import os
-
 
 app = Flask(__name__)
 auth = None
-
 
 # Initialize authentication type based on environment variable
 AUTH_TYPE = os.getenv("AUTH_TYPE")
 if AUTH_TYPE == "basic_auth":
     auth = BasicAuth()
+
+if AUTH_TYPE == "session_auth":
+    auth = SessionAuth()
 
 
 @app.before_request

@@ -41,7 +41,7 @@ class Auth:
 
     def register_user(self, email: str, password: str) -> User:
         """
-        Register a new user
+        Register new user
 
         Args:
             email (str): User's email
